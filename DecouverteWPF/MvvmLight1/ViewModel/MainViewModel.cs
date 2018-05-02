@@ -75,12 +75,21 @@ namespace MvvmLight1.ViewModel
             Random rand = new Random();
             while (true)
             {
-                this.TranslateX = rand.Next(0, 300);
+                int val = rand.Next(0, 2);
+                int min = rand.Next(-1, 1);
+                int valMovment = rand.Next(min, 2);
+
+                if (val == 0)
+                    this.TranslateX+= valMovment;
+                else
+                    this.TranslateY+= valMovment;
+
                 Thread.Sleep(100);
             }
         }
 
         private double _translateX = 50;
+        private double _translateY = 0;
 
         public double TranslateX
         {
@@ -93,6 +102,15 @@ namespace MvvmLight1.ViewModel
         }
 
         public ICommand LaunchCommand { get => this._launchCommand; set => this._launchCommand = value; }
+        public double TranslateY
+        {
+            get => this._translateY;
+            set
+            {
+                this._translateY = value;
+                this.RaisePropertyChanged("TranslateY");
+            }
+        }
 
 
         ////public override void Cleanup()

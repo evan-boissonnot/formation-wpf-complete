@@ -28,7 +28,7 @@
                     <ScaleTransform/>
                     <SkewTransform/>
                     <RotateTransform/>
-                    <TranslateTransform X="{Binding TranslateX}"/>
+                    <TranslateTransform X="{Binding TranslateX}" Y="{Binding TranslateY}"/>
                 </TransformGroup>
             </Button.RenderTransform>
         </Button>
