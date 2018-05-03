@@ -80,7 +80,7 @@
     <Compile Include="Model\IActivity.cs" />
     <Compile Include="Model\IActivityService.cs" />
     <Compile Include="Model\ICoordinate.cs" />
-    <Compile Include="ViewModel\ObservableActivity.cs" />
+    <Compile Include="Model\ObservableActivity.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
     <Page Include="MainWindow.xaml">

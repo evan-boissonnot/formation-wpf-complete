@@ -10,6 +10,8 @@ namespace MvvmLight1.Model
     {
         #region Properties
         public ICoordinate Coordinate { get; set; }
+
+        public string Id => throw new NotImplementedException();
         #endregion
     }
 }

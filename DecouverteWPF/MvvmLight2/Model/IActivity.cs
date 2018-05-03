@@ -8,6 +8,8 @@ namespace MvvmLight1.Model
 {
     public interface IActivity
     {
+        string Id { get; }
+
         ICoordinate Coordinate { get; set; }
     }
 }

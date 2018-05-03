@@ -2,9 +2,12 @@
 using GalaSoft.MvvmLight.Command;
 using MvvmLight1.Model;
 using System;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Threading;
 using System.Windows.Input;
+using System.Linq;
+using System.Collections.Generic;
 
 namespace MvvmLight1.ViewModel
 {
@@ -18,6 +21,7 @@ namespace MvvmLight1.ViewModel
     {
         #region Fields
         private readonly IActivityService _dataService;
+        private ObservableCollection<Model.ObservableActivity> _activityList = null;
 
         #region Commands
         private ICommand _launchCommand = null;
@@ -25,9 +29,6 @@ namespace MvvmLight1.ViewModel
         #endregion
 
         private BackgroundWorker _worker = new BackgroundWorker();
-
-        private double _translateX = 50;
-        private double _translateY = 0;
         #endregion
 
         #region Constructors
@@ -36,19 +37,9 @@ namespace MvvmLight1.ViewModel
         /// </summary>
         public MainViewModel(IActivityService dataService)
         {
-            _dataService = dataService;
-            _dataService.GetData(
-                (item, error) =>
-                {
-                    if (error != null)
-                    {
-                        // Report error here
-                        return;
-                    }
-                });
+            this._dataService = dataService;
 
             this.Initialize();
-
             this._worker.DoWork += this._worker_DoWork;
         }
         #endregion
@@ -57,6 +48,20 @@ namespace MvvmLight1.ViewModel
         private void Initialize()
         {
             this.ManageCommands();
+            this.LoadButtons();
+        }
+
+        private void LoadButtons()
+        {
+            this._dataService.GetList(
+                (list, error) =>
+                {
+                    if (error == null)
+                    {
+                        List<ObservableActivity> activityList = list.Select(item => new ObservableActivity(item)).ToList();
+                        this.ActivityList = new ObservableCollection<ObservableActivity>(activityList);
+                    }
+                });
         }
 
         private void ManageCommands()
@@ -79,41 +84,24 @@ namespace MvvmLight1.ViewModel
         private void _worker_DoWork(object sender, DoWorkEventArgs e)
         {
             Random rand = new Random();
-            while (true)
+
+            foreach (var item in this.ActivityList)
             {
-                int val = rand.Next(0, 2);
-                int min = rand.Next(-1, 1);
-                int valMovment = rand.Next(min, 2);
-
-                if (val == 0)
-                    this.TranslateX += valMovment;
-                else
-                    this.TranslateY += valMovment;
-
-                Thread.Sleep(100);
+                Thread thread = new Thread(new ThreadStart(() => item.Start()));
+                thread.Start();
             }
         }
         #endregion
         #endregion
 
         #region Properties
-        public double TranslateX
+        public ObservableCollection<Model.ObservableActivity> ActivityList
         {
-            get => this._translateX;
+            get => this._activityList;
             set
             {
-                this._translateX = value;
-                this.RaisePropertyChanged("TranslateX");
-            }
-        }
-
-        public double TranslateY
-        {
-            get => this._translateY;
-            set
-            {
-                this._translateY = value;
-                this.RaisePropertyChanged("TranslateY");
+                this._activityList = value;
+                this.RaisePropertyChanged(() => this.ActivityList);
             }
         }
 
@@ -121,15 +109,5 @@ namespace MvvmLight1.ViewModel
 
         public ICommand LaunchCommand { get => this._launchCommand; set => this._launchCommand = value; }
         #endregion
-
-
-
-
-        ////public override void Cleanup()
-        ////{
-        ////    // Clean up if needed
-
-        ////    base.Cleanup();
-        ////}
     }
 }

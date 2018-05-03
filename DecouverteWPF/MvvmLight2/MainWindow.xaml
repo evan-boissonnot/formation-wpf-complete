@@ -19,19 +19,28 @@
     </Window.Resources>
 
     <Grid x:Name="LayoutRoot">
+        <ListBox ItemsSource="{Binding ActivityList}" IsManipulationEnabled="True" IsTabStop="False">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Button Content="x"  HorizontalAlignment="Left"  VerticalAlignment="Top" Width="20" Height="20" Command="{Binding ClickCommand}"  >
+                        <Button.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform/>
+                                <RotateTransform/>
+                                <TranslateTransform X="{Binding X}" Y="{Binding Y}"/>
+                            </TransformGroup>
+                        </Button.RenderTransform>
+                    </Button>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        
         <Button Content="Launch" Width="50" Height="50" Command="{Binding LaunchCommand}"></Button>
 
         
-        <Button Content="x"  HorizontalAlignment="Left"  VerticalAlignment="Top" Width="20" Height="20" Command="{Binding ClickCommand}"  >
-            <Button.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform/>
-                    <TranslateTransform X="{Binding TranslateX}" Y="{Binding TranslateY}"/>
-                </TransformGroup>
-            </Button.RenderTransform>
-        </Button>
+        
+        
 
     </Grid>
 </Window>

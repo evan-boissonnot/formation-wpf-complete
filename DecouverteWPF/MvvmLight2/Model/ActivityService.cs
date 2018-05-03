@@ -13,25 +13,22 @@ namespace MvvmLight1.Model
 
         public void GetList(Action<List<IActivity>, Exception> callback)
         {
-            callback(new List<IActivity>()
+            List<IActivity> list = new List<IActivity>();
+            Random rand = new Random();
+
+            for (int i = 0; i < 10; i++)
             {
-                new Human()
+                list.Add(new Human()
                 {
                     Coordinate = new DefaultCoordinate()
                     {
-                        X = 10,
-                        Y = 10
+                        X = rand.Next(0, 300),
+                        Y = rand.Next(0, 300)
                     }
-                },
-                new Human()
-                {
-                    Coordinate = new DefaultCoordinate()
-                    {
-                        X = 20,
-                        Y = 20
-                    }
-                }
-            }, null);
+                });
+            }
+
+            callback(list, null);
         }
         #endregion
     }
