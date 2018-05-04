@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{841E9274-71D2-4B32-BCCB-3A6259088EE3}</ProjectGuid>
+    <ProjectGuid>{4D8980DE-27C2-4270-94D3-7C4C9C75C958}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>MvvmLight1</RootNamespace>
@@ -79,7 +79,7 @@
     <Compile Include="Model\IActivity.cs" />
     <Compile Include="Model\IActivityService.cs" />
     <Compile Include="Model\ICoordinate.cs" />
-    <Compile Include="ViewModel\ObservableActivity.cs" />
+    <Compile Include="Model\ObservableActivity.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
     <Page Include="MainWindow.xaml">
@@ -126,6 +126,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\smiley.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
