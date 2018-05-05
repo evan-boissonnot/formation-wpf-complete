@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{7AC6FAAA-35B3-4CE0-8089-112EC5ACAF94}</ProjectGuid>
+    <ProjectGuid>{622C93BE-4F3C-4E3C-B006-07EFE91D4FBC}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>MvvmLight1</RootNamespace>
@@ -135,6 +135,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\tracepas.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\parchemin.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

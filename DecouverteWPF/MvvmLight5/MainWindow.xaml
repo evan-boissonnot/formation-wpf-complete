@@ -8,7 +8,7 @@
         Height="300"
         Width="300"
         Title="MVVM Light Application"
-        DataContext="{Binding Main, Source={StaticResource Locator}}">
+        DataContext="{Binding Main, Source={StaticResource Locator}}" >
 
     <Window.Resources>
         <ResourceDictionary>
@@ -16,7 +16,6 @@
                 <ResourceDictionary Source="Skins/MainSkin.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
-        
     </Window.Resources>
 
     <Grid x:Name="LayoutRoot">
@@ -26,30 +25,17 @@
                 <DataTemplate>
                     <Label MouseUp="Label_MouseUp">
                         <StackPanel MouseUp="Label_MouseUp">
-                            <TextBlock MouseUp="Label_MouseUp">
-                                    Test
-                            </TextBlock>
                             <Image MouseUp="Label_MouseUp" Source="pack://application:,,,/Images/tracepas.png" Width="50px"></Image>
                         </StackPanel>
                         <Label.RenderTransform>
                             <TransformGroup>
                                 <ScaleTransform/>
                                 <SkewTransform/>
-                                <RotateTransform/>
+                                <RotateTransform />
                                 <TranslateTransform X="{Binding X}" Y="{Binding Y}"/>
                             </TransformGroup>
                         </Label.RenderTransform>
                     </Label>
-                    <!--<Button Content="x"  HorizontalAlignment="Left"  VerticalAlignment="Top" Width="20" Height="20" Command="{Binding ClickCommand}"  >
-                        <Button.RenderTransform>
-                            <TransformGroup>
-                                <ScaleTransform/>
-                                <SkewTransform/>
-                                <RotateTransform/>
-                                <TranslateTransform X="{Binding X}" Y="{Binding Y}"/>
-                            </TransformGroup>
-                        </Button.RenderTransform>
-                    </Button>-->
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
