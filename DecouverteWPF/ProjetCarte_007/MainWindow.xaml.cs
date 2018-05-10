@@ -29,6 +29,7 @@ namespace ProjetCarte_005
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            //TransformGroup si plusieurs
             this.lblStep.RenderTransform = new TranslateTransform(rand.Next(-500, 500), rand.Next(-500, 500));
         }
     }

@@ -1,0 +1,39 @@
+﻿<Window x:Class="ExempleDonneesLiees.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ExempleDonneesLiees"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800" 
+        Loaded="Window_Loaded">
+    <Window.Resources>
+       
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" DataContext="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}, Path=Droide}">
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Label Content="{Binding Id}" Grid.Row="0"></Label>
+            <TextBox Text="{Binding Name}"  Grid.Row="1"></TextBox>
+            <Label Content="{Binding Name}"  Grid.Row="2"></Label>
+        </Grid>
+        <Grid Grid.Row="1" DataContext="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}, Path=Droide2}">
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Label Content="{Binding Id}" Grid.Row="0"></Label>
+            <TextBox Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}"  Grid.Row="1"></TextBox>
+            <Label Content="{Binding Name}"  Grid.Row="2"></Label>
+        </Grid>
+    </Grid>
+</Window>
