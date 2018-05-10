@@ -5,11 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Boss001"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800"
-        DataContext="{Binding RelativeSource={StaticResource ResourceKey=viewModel}}">
-    <Window.Resources>
-        <local:MainWindowViewModel x:Key="viewModel"></local:MainWindowViewModel>
-    </Window.Resources>
+        Title="MainWindow" Height="450" Width="800">
+
+    <Window.DataContext>
+        <local:MainWindowViewModel />
+    </Window.DataContext>
+    
     <Grid>
         <Label Width="50" Height="50" x:Name="lblStep" DataContext="{Binding Droide}" >
             <Grid>
@@ -20,7 +21,7 @@
                 <TranslateTransform X="{Binding X}" Y="{Binding Y}"></TranslateTransform>
             </Label.RenderTransform>
         </Label>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="695,32,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="695,32,0,0" VerticalAlignment="Top" Width="75" Command="{Binding LaunchProgramCommand}"/>
 
     </Grid>
 </Window>

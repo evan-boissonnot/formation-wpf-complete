@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Boss001
+namespace CollectionsVisu
 {
     public class Droide : BaseBindable
     {

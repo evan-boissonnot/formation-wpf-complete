@@ -8,7 +8,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Boss001
+namespace CollectionsVisu
 {
     public class BaseBindable : INotifyPropertyChanged
     {
