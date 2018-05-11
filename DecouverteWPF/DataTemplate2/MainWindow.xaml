@@ -19,7 +19,13 @@
 
         <Button Grid.Row="0" Grid.Column="0" Content="Click" Click="Button_Click"></Button>
         <ListBox Grid.Row="1" x:Name="lstDroides">
-            
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Label Content="{Binding X}"></Label>
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
         </ListBox>
     </Grid>
 </Window>
