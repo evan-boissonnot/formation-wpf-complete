@@ -5,26 +5,33 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CollectionsVisu
+namespace Boss001
 {
     public class Droide : BaseBindable
     {
         #region Fields
-        private Random _rand = new Random();
         private double _x = 0;
         private double _y = 0;
+        private Func<int, int, int> _nextValue = null;
+        #endregion
+
+        #region Constructors
+        public Droide(Func<int, int, int> nextValue)
+        {
+            this._nextValue = nextValue;
+        }
         #endregion
 
         #region Public methods
-        public void Move(Func<int,int, int> nextValue)
+        public void Move()
         {
             while (true)
             {
                 double lastX = this.X;
                 double lastY = this.Y;
 
-                this.X = lastX + nextValue(-1, 2);
-                this.Y = lastY + nextValue(-1, 2);
+                this.X = lastX + this._nextValue(-1, 2);
+                this.Y = lastY + this._nextValue(-1, 2);
 
                 System.Threading.Thread.Sleep(100);
             }
@@ -35,8 +42,6 @@ namespace CollectionsVisu
         public double X { get => this._x; set { this._x = value; this.OnPropertyChanged(() => this.X); } }
 
         public double Y { get => this._y; set { this._y = value; this.OnPropertyChanged(); } }
-
-        public string Name { get; set; }
         #endregion
     }
 }

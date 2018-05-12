@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace CollectionsVisu
 {
@@ -28,6 +29,11 @@ namespace CollectionsVisu
 
                 System.Threading.Thread.Sleep(100);
             }
+        }
+
+        public override string ToString()
+        {
+            return $"{this.Name} => {this.X}.{this.Y}";
         }
         #endregion
 

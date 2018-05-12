@@ -12,7 +12,7 @@
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
-        
+
         <Button Content="Click" Click="Button_Click"></Button>
         <ListBox x:Name="lstIems" Grid.Row="0" Grid.Column="1"></ListBox>
     </Grid>

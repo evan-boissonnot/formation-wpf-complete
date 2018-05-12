@@ -1,6 +1,6 @@
-﻿using CollectionsVisu;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,26 +14,27 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Collections
+namespace Boss001
 {
     /// <summary>
     /// Logique d'interaction pour MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
-        private List<Droide> _list = new List<Droide>();
-
+        #region Constructors
         public MainWindow()
         {
             InitializeComponent();
-            this.lstIems.ItemsSource = this.List;
+
+            
         }
+        #endregion
 
-        public List<Droide> List { get => this._list; set => this._list = value; }
-
+        #region Internal methods
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            this.List.Add(new Droide() { Name = "Robot" + DateTime.Now.Ticks });
+            //this._worker.RunWorkerAsync();
         }
+        #endregion
     }
 }

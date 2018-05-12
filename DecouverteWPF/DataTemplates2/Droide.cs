@@ -29,6 +29,11 @@ namespace CollectionsVisu
                 System.Threading.Thread.Sleep(100);
             }
         }
+
+        public override string ToString()
+        {
+            return $"{this.Name} => {this.X}.{this.Y}";
+        }
         #endregion
 
         #region Properties

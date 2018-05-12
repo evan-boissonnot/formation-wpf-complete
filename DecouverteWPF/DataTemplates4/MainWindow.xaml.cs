@@ -1,6 +1,7 @@
 ﻿using CollectionsVisu;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,15 +22,16 @@ namespace Collections
     /// </summary>
     public partial class MainWindow : Window
     {
-        private List<Droide> _list = new List<Droide>();
+        private ObservableCollection<Droide> _list = new ObservableCollection<Droide>();
 
         public MainWindow()
         {
             InitializeComponent();
             this.lstIems.ItemsSource = this.List;
+            this.lstIems2.ItemsSource = this.List;
         }
 
-        public List<Droide> List { get => this._list; set => this._list = value; }
+        public ObservableCollection<Droide> List { get => this._list; set => this._list = value; }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {

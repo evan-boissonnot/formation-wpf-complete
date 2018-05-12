@@ -4,16 +4,31 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Collections"
+        xmlns:coll="clr-namespace:CollectionsVisu"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
+    <Window.Resources>
+        
+
+        <DataTemplate DataType="{x:Type coll:Droide}">
+            <Grid>
+                <Label Content="{Binding Name}" FontStyle="Italic" FontWeight="Bold"/>
+            </Grid>
+        </DataTemplate>
+
+    </Window.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
-        
         <Button Content="Click" Click="Button_Click"></Button>
-        <ListBox x:Name="lstIems" Grid.Row="0" Grid.Column="1"></ListBox>
+        <ListBox x:Name="lstIems" Grid.Row="0" Grid.Column="1" ItemTemplate="{Binding Source={StaticResource DroideTemplate}}">
+        </ListBox>
+
+        <ListBox x:Name="lstIems2" Grid.Row="0" Grid.Column="2" >
+        </ListBox>
     </Grid>
 </Window>

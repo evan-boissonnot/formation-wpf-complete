@@ -12,8 +12,16 @@
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
-        
+
         <Button Content="Click" Click="Button_Click"></Button>
-        <ListBox x:Name="lstIems" Grid.Row="0" Grid.Column="1"></ListBox>
+        <ListBox x:Name="lstIems" Grid.Row="0" Grid.Column="1">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Label Content="{Binding Name}" />
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
     </Grid>
 </Window>
