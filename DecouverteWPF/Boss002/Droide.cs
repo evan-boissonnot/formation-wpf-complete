@@ -10,13 +10,17 @@ namespace Boss001
     public class Droide : BaseBindable
     {
         #region Fields
+        private int _id = 0;
+        private string _name = string.Empty;
         private double _x = 0;
         private double _y = 0;
         private Func<int, int, int> _nextValue = null;
         #endregion
 
         #region Constructors
-        public Droide(Func<int, int, int> nextValue)
+        public Droide() { }
+
+        public Droide(Func<int, int, int> nextValue) : this()
         {
             this._nextValue = nextValue;
         }
@@ -42,6 +46,9 @@ namespace Boss001
         public double X { get => this._x; set { this._x = value; this.OnPropertyChanged(() => this.X); } }
 
         public double Y { get => this._y; set { this._y = value; this.OnPropertyChanged(); } }
+
+        public string Name { get => this._name; set { this._name = value; this.OnPropertyChanged(); } }
+        public int Id { get => this._id; set { this._id = value; this.OnPropertyChanged(); } }
         #endregion
     }
 }
