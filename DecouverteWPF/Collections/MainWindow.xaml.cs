@@ -26,15 +26,14 @@ namespace Collections
         public MainWindow()
         {
             InitializeComponent();
-
-            this.lstDroides.ItemsSource = this.List;
+            this.lstIems.ItemsSource = this.List;
         }
 
         public List<Droide> List { get => this._list; set => this._list = value; }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            this.List.Add(new Droide());
+            this.List.Add(new Droide() { Name = "Robot" + DateTime.Now.Ticks });
         }
     }
 }

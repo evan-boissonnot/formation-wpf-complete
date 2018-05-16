@@ -35,6 +35,8 @@ namespace CollectionsVisu
         public double X { get => this._x; set { this._x = value; this.OnPropertyChanged(() => this.X); } }
 
         public double Y { get => this._y; set { this._y = value; this.OnPropertyChanged(); } }
+
+        public string Name { get; set; }
         #endregion
     }
 }

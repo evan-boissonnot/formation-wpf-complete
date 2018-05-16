@@ -1,0 +1,64 @@
+﻿<Window x:Class="Boss001.DroideMasterWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Boss001"
+        mc:Ignorable="d"
+        Title="DroideMasterWindow" Height="450" Width="800">
+    <Window.Resources>
+        <ResourceDictionary>
+            <local:NullVisibilityConverter x:Key="nullVisibilityConverter"></local:NullVisibilityConverter>
+            <local:BoolVisibilityConverter x:Key="boolVisibilityConverter"></local:BoolVisibilityConverter>
+            <local:BoolInverseVisibilityConverter x:Key="boolInverseVisibilityConverter"></local:BoolInverseVisibilityConverter>
+
+            <DataTemplate DataType="{x:Type local:Droide}">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Column="0" Content="{Binding Id}"></Label>
+                    <Label Grid.Column="1" Content="{Binding Name}"></Label>
+                </Grid>
+            </DataTemplate>
+        </ResourceDictionary>
+    </Window.Resources>
+    
+    <Window.DataContext>
+        <local:DroideMasterViewModel></local:DroideMasterViewModel>        
+    </Window.DataContext>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <GridSplitter Grid.Column="1"></GridSplitter>
+
+        <ListBox Grid.Row="0" Grid.Column="0" ItemsSource="{Binding DroideList}" SelectedItem="{Binding SelectedDroide}"></ListBox>
+
+        <Button Content="Nouveau droide" Grid.Column="1" Height="50" Width="100" Grid.Row="0" Command="{Binding NewDroideCommand}" Visibility="{Binding DataContext.IsPanelVisible, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}, Converter={StaticResource boolInverseVisibilityConverter}}"></Button>
+        
+        <Grid Grid.Row="0" Grid.Column="1" DataContext="{Binding SelectedDroide}" Visibility="{Binding DataContext.IsPanelVisible, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}, Converter={StaticResource boolVisibilityConverter}}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <Label Grid.Row="0" Grid.Column="0" Content="Nom : "></Label>
+            <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding Name, UpdateSourceTrigger=PropertyChanged, ValidatesOnExceptions=True}">
+            </TextBox>
+
+            <Button Grid.Row="3" Height="50" Content="Ajouter" Command="{Binding DataContext.SaveDroideCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}}"></Button>
+            <Button Grid.Row="3" Grid.Column="1" Height="50" Content="Annuler" Command="{Binding DataContext.CancelSaveDroideCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}}"></Button>
+        </Grid>
+    </Grid>
+</Window>
