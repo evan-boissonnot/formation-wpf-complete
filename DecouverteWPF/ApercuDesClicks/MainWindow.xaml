@@ -7,12 +7,18 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <StackPanel MouseDown="On_MouseDown" >
-            <Label MouseDown="On_MouseDown">
-                <TextBlock MouseDown="On_MouseDown" Text="Click me" ></TextBlock>
-            </Label>
+        <StackPanel Width="500" Orientation="Horizontal">
+            <Button Content="Test" Width="20"></Button>
+            <Button Content="Test2" Width="20"></Button>
+            <Button Content="Test3" Width="20"></Button>
         </StackPanel>
 
-        <Label x:Name="lblResult" Content="test" HorizontalAlignment="Center"></Label>
+        <DockPanel Margin="200">
+            <Button Content="Test" Width="20"></Button>
+            <Button Content="Test2" Width="20"></Button>
+            <Button Content="Test3" Width="20"></Button>
+        </DockPanel>
+
+        
     </Grid>
 </Window>

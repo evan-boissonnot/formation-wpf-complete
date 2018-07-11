@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace ApercuDesClicks
+namespace DockPanelStackPanelDiffrence
 {
     /// <summary>
     /// Logique d'interaction pour MainWindow.xaml
@@ -23,11 +23,6 @@ namespace ApercuDesClicks
         public MainWindow()
         {
             InitializeComponent();
-        }
-
-        private void On_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            //this.lblResult.Content += sender.ToString() + "\n";
         }
     }
 }

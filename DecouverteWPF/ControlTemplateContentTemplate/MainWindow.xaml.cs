@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace ApercuDesClicks
+namespace ControlTemplateContentTemplate
 {
     /// <summary>
     /// Logique d'interaction pour MainWindow.xaml
@@ -25,9 +25,9 @@ namespace ApercuDesClicks
             InitializeComponent();
         }
 
-        private void On_MouseDown(object sender, MouseButtonEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
-            //this.lblResult.Content += sender.ToString() + "\n";
+            this.lbl.Content = DateTime.Now.Ticks;
         }
     }
 }

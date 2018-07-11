@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace ApercuDesClicks
+namespace EcrireEnCode
 {
     /// <summary>
     /// Logique d'interaction pour MainWindow.xaml
@@ -23,11 +23,24 @@ namespace ApercuDesClicks
         public MainWindow()
         {
             InitializeComponent();
+
+            Grid grid = new Grid();
+
+            Button button = new Button();
+
+            button.Content = new TextBlock()
+            {
+                Text = "Coucou"
+            };
+
+            grid.Children.Add(button);
+            
+
+            this.Content = grid;
         }
 
-        private void On_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            //this.lblResult.Content += sender.ToString() + "\n";
-        }
+        
+
+       
     }
 }
