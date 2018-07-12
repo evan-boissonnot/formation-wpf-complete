@@ -16,5 +16,12 @@
             </Grid>
         </Button>
 
+        <Label Content="Coucou">
+            <Label.Background>
+                <ImageBrush ImageSource="pack://application:,,,/Images/tracepas.png">
+                </ImageBrush>
+            </Label.Background>            
+        </Label>
+
     </Grid>
 </Window>

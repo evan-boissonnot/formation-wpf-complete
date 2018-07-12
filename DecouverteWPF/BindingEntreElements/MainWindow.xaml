@@ -13,6 +13,13 @@
             <Label Content="Hello 2" FontSize="{Binding ElementName=slider, Path=Value}"></Label>
             <Label Content="Hello 2" FontSize="{Binding ElementName=slider, Path=Value}"></Label>
             <Label Content="Hello 2" FontSize="{Binding ElementName=slider, Path=Value}"></Label>
+
+            <TextBox Text="100" x:Name="monTxt"></TextBox>
+            <Image Height="100"  Source="C:\Users\evan\Pictures\dev to be curious.png" 
+               Width="{Binding ElementName=monTxt,Path=Text}"></Image>
         </StackPanel>
+
+
+        
     </Grid>
 </Window>
