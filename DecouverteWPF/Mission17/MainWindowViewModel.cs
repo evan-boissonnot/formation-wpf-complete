@@ -51,7 +51,7 @@ namespace Boss001
             const int MAX_X = 1500;
             const int MAX_Y = 800;
 
-            this.DroideList = new ObservableCollection<Droide>();
+            this.DroideList = new List<Droide>();
 
             int maxDroide = this._rand.Next(10, 100);
 
@@ -103,7 +103,7 @@ namespace Boss001
             get;set;
         }
 
-        public ObservableCollection<Droide> DroideList { get; set; }
+        public List<Droide> DroideList { get; set; }
         #endregion
     }
 }
